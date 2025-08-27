@@ -39,8 +39,8 @@ const CitizenPolling = () => {
       {
         label: t('votes'),
         data: poll.options.map(option => option.votes),
-        backgroundColor: ['#4A90E2', '#50C878', '#F5A623'], // Use theme colors
-        borderColor: ['#4A90E2', '#50C878', '#F5A623'],
+        backgroundColor: ['#4A90E2', '#50C878', '#7B61FF'], // Use theme colors
+        borderColor: ['#4A90E2', '#50C878', '#7B61FF'],
         borderWidth: 1,
       },
     ],
@@ -51,24 +51,24 @@ const CitizenPolling = () => {
     plugins: {
       legend: { 
         position: 'top', 
-        labels: { color: '#F8FAFC' } // Text color for chart legend
+        labels: { color: '#2D3748' } // Text color for chart legend
       },
       title: { 
         display: true, 
         text: t('votingResults'),
-        color: '#F8FAFC' // Text color for chart title
+        color: '#2D3748' // Text color for chart title
       },
     },
     scales: {
       x: {
         beginAtZero: true,
-        ticks: { color: '#CBD5E1' }, // Text color for X-axis labels
-        grid: { color: '#334155' } // Grid line color
+        ticks: { color: '#718096' }, // Text color for X-axis labels
+        grid: { color: '#E2E8F0' } // Grid line color
       },
       y: {
         beginAtZero: true,
-        ticks: { color: '#CBD5E1' }, // Text color for Y-axis labels
-        grid: { color: '#334155' } // Grid line color
+        ticks: { color: '#718096' }, // Text color for Y-axis labels
+        grid: { color: '#E2E8F0' } // Grid line color
       },
     },
   };
@@ -78,7 +78,7 @@ const CitizenPolling = () => {
       <main className="container mx-auto p-4">
         <h1 className="text-3xl font-bold text-text mb-6">{t('citizenPolling')}</h1>
 
-        <div className="bg-gray-800 rounded-xl shadow-md border border-gray-700 p-6 max-w-3xl mx-auto">
+        <div className="bg-card rounded-xl shadow-light border border-border p-6 max-w-3xl mx-auto">
           <h2 className="text-2xl font-semibold text-text mb-4">{poll.question}</h2>
 
           <div className="space-y-4 mb-8">
@@ -88,11 +88,11 @@ const CitizenPolling = () => {
                 onClick={() => handleVote(option.id)}
                 disabled={hasVoted}
                 className={`w-full text-left p-4 rounded-lg border transition-all duration-300 flex items-center justify-between ${selectedOption === option.id
-                  ? 'bg-primary/20 border-primary text-primary shadow-lg'
-                  : 'bg-gray-700 border-gray-600 text-lightText hover:bg-gray-700/80 hover:border-gray-500'}
+                  ? 'bg-primary/20 border-primary text-primary shadow-medium'
+                  : 'bg-background border-border text-lightText hover:bg-gray-100 hover:border-gray-200 shadow-light'}
                   ${hasVoted && 'cursor-not-allowed opacity-70'}`}
               >
-                <span className="font-medium text-lg">{t(option.text)}</span>
+                <span className="font-medium text-lg text-text">{t(option.text)}</span>
                 {hasVoted && <span className="text-lightText">{option.votes} {t('votes')}</span>}
                 {selectedOption === option.id && <CheckCircle className="w-5 h-5 text-primary ml-4" />}
               </button>
@@ -100,12 +100,12 @@ const CitizenPolling = () => {
           </div>
 
           {hasVoted && ( // Show results after voting
-            <div className="mt-8 bg-background p-4 rounded-lg border border-gray-700">
+            <div className="mt-8 bg-card p-4 rounded-lg border border-border shadow-light">
               <h3 className="text-xl font-semibold text-text mb-4">{t('votingResults')}</h3>
               <div className="w-full">
                 <Bar data={chartData} options={chartOptions} />
               </div>
-              <p className="text-center text-sm text-lightText mt-4">{t('totalVotes')}: {totalVotes}</p>
+              <p className="text-center text-sm text-gray-400 mt-4">{t('totalVotes')}: {totalVotes}</p>
             </div>
           )}
 

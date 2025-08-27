@@ -59,13 +59,13 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen">
         {user?.userType === 'citizen' ? (
           <>
             <Sidebar user={user} isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
             <div className="lg:pl-64">
               <Header user={user} onLogout={handleLogout} setIsSidebarOpen={setIsSidebarOpen} isSidebarOpen={isSidebarOpen} />
-              <main role="main">
+              <main role="main" className="bg-background text-text">
                 <Routes>
                   {/* Citizen Routes */}
                   <Route path="/" element={<CitizenDashboard />} />
@@ -87,7 +87,7 @@ function App() {
             <Sidebar user={user} isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
             <div className="lg:pl-64">
               <Header user={user} onLogout={handleLogout} setIsSidebarOpen={setIsSidebarOpen} isSidebarOpen={isSidebarOpen} />
-              <main role="main">
+              <main role="main" className="bg-darkSidebarBg text-white">
                 <Routes>
                   {/* Department Routes */}
                   <Route path="/" element={<Dashboard />} />
@@ -108,7 +108,7 @@ function App() {
         {/* Overlay for small screens when sidebar is open */}
         {isSidebarOpen && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
+            className="fixed inset-0 bg-gray-700 bg-opacity-75 z-30 lg:hidden"
             onClick={() => setIsSidebarOpen(false)}
           ></div>
         )}

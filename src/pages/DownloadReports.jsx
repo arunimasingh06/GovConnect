@@ -45,21 +45,21 @@ const DownloadReports = () => {
 
         <div className="space-y-6">
           {projects.map((project) => (
-            <div key={project.id} className="bg-gray-800 rounded-xl shadow-md border border-gray-700 p-6 flex flex-col md:flex-row items-center justify-between">
+            <div key={project.id} className="bg-card rounded-xl shadow-light border border-border p-6 flex flex-col md:flex-row items-center justify-between">
               <div className="flex-1 mb-4 md:mb-0">
                 <h2 className="text-xl font-semibold text-text mb-1">{project.name}</h2>
                 <p className="text-lightText text-sm">{t('department')}: {project.department}</p>
               </div>
               <button
                 onClick={() => handleDownloadReport(project.id, project.name)}
-                className="bg-primary text-white px-5 py-2 rounded-lg shadow-md hover:bg-primary/90 transition duration-300 flex items-center"
+                className="bg-primary text-white px-5 py-2 rounded-lg shadow-medium hover:bg-primary/90 transition duration-300 transform hover:scale-105 flex items-center"
               >
                 <Download className="w-5 h-5 mr-2" />
                 {t('downloadPdf')}
               </button>
 
               {/* Hidden content to be captured by html2canvas */}
-              <div id={`project-report-${project.id}`} className="absolute -left-[9999px] -top-[9999px] w-full p-8 bg-background text-text">
+              <div id={`project-report-${project.id}`} className="absolute -left-[9999px] -top-[9999px] w-full p-8 bg-card text-text">
                 <h1 className="text-2xl font-bold mb-4 text-text">{project.name} - {t('projectReport')}</h1>
                 <p className="text-sm text-lightText mb-2">{t('department')}: {project.department}</p>
                 <p className="text-sm text-lightText mb-4">{t('date')}: {new Date().toLocaleDateString()}</p>

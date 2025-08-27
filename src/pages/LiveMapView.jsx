@@ -90,13 +90,13 @@ const LiveMapView = () => {
       <main className="container mx-auto p-4">
         <h1 className="text-3xl font-bold text-text mb-6">{t('liveMapView')}</h1>
 
-        <div className="bg-gray-800 rounded-xl shadow-md border border-gray-700 p-6">
+        <div className="bg-card rounded-xl shadow-light border border-border p-6">
           <LazyLoad height={600} offset={200} once>
             <MapContainer
               center={[28.6139, 77.2090]} // Centered around Delhi
               zoom={12}
               style={{ height: '600px', width: '100%' }}
-              className="rounded-lg border border-gray-700"
+              className="rounded-lg border border-border shadow-light"
             >
               <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -120,7 +120,7 @@ const LiveMapView = () => {
           <div className="mt-4 flex justify-center space-x-4 text-sm font-medium text-text">
             <div className="flex items-center"><span className="w-3 h-3 bg-primary rounded-full mr-2"></span> {t('onTime')}</div>
             <div className="flex items-center"><span className="w-3 h-3 bg-accent rounded-full mr-2"></span> {t('delayed')}</div>
-            <div className="flex items-center"><span className="w-3 h-3 bg-red-500 rounded-full mr-2"></span> {t('stalled')}</div>
+            <div className="flex items-center"><span className="w-3 h-3 bg-danger rounded-full mr-2"></span> {t('stalled')}</div>
           </div>
         </div>
       </main>

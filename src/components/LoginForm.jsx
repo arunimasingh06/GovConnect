@@ -56,28 +56,28 @@ export default function LoginForm({ onLogin }) {
   ];
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-ping"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-ping"></div>
       </div>
 
       <div className="w-full max-w-md relative z-10">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-3xl mb-6 shadow-2xl shadow-primary/25 ring-4 ring-primary/20 backdrop-blur-sm">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-darkGradientStart to-darkGradientEnd rounded-3xl mb-6 shadow-medium ring-4 ring-primary/20 backdrop-blur-sm">
             <Shield className="w-10 h-10 text-white drop-shadow-lg" />
           </div>
-          <h1 className="text-4xl font-bold text-text mb-3">GovConnect</h1>
-          <p className="text-lightText font-medium text-lg">{t('departmentManagementSystem')}</p>
+          <h1 className="text-4xl font-bold text-white mb-3">GovConnect</h1>
+          <p className="text-gray-300 font-medium text-lg">{t('departmentManagementSystem')}</p>
         </div>
 
         {/* Login Form */}
-        <div className="bg-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/20 p-8 relative overflow-hidden">
+        <div className="bg-card backdrop-blur-md rounded-3xl shadow-lg border border-border p-8 relative overflow-hidden">
           {/* Glass overlay effect */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5 rounded-3xl"></div>
+          <div className="absolute inset-0 bg-black/10 via-transparent to-black/5 rounded-3xl"></div>
           <div className="relative z-10">
             <div className="mb-6">
               <h2 className="text-2xl font-semibold text-text mb-2">{t('welcomeBack')}</h2>
@@ -86,8 +86,8 @@ export default function LoginForm({ onLogin }) {
 
             <form onSubmit={handleSubmit} className="space-y-6">
               {error && (
-                <div className="bg-red-500/20 border border-red-400/30 rounded-xl p-3 backdrop-blur-sm">
-                  <p className="text-red-200 text-sm">{error}</p>
+                <div className="bg-danger/10 border border-danger/30 rounded-xl p-3 backdrop-blur-sm">
+                  <p className="text-danger text-sm">{error}</p>
                 </div>
               )}
 
@@ -108,8 +108,8 @@ export default function LoginForm({ onLogin }) {
                     }}
                     className={`flex items-center justify-center p-3 rounded-xl border transition-all duration-300 ${
                       userType === 'citizen'
-                        ? 'bg-primary/30 border-primary text-text shadow-lg shadow-primary/25'
-                        : 'bg-background border-lightText/30 text-lightText hover:bg-background/80'
+                        ? 'bg-primary/20 border-primary/50 text-primary shadow-light'
+                        : 'bg-background border-border text-lightText hover:bg-gray-100'
                     }`}
                   >
                     <Users className="w-5 h-5 mr-2" />
@@ -126,8 +126,8 @@ export default function LoginForm({ onLogin }) {
                     }}
                     className={`flex items-center justify-center p-3 rounded-xl border transition-all duration-300 ${
                       userType === 'department'
-                        ? 'bg-primary/30 border-primary text-text shadow-lg shadow-primary/25'
-                        : 'bg-background border-lightText/30 text-lightText hover:bg-background/80'
+                        ? 'bg-primary/20 border-primary/50 text-primary shadow-light'
+                        : 'bg-background border-border text-lightText hover:bg-gray-100'
                     }`}
                   >
                     <Building2 className="w-5 h-5 mr-2" />
@@ -150,7 +150,7 @@ export default function LoginForm({ onLogin }) {
                     type="text"
                     value={loginIdentifier}
                     onChange={(e) => setLoginIdentifier(e.target.value)}
-                    className="block w-full pl-10 pr-3 py-3 bg-background/50 backdrop-blur-sm border border-lightText/30 rounded-xl text-text placeholder-lightText/80 focus:ring-2 focus:ring-primary focus:border-primary focus:bg-background/70 transition-all duration-300"
+                    className="block w-full pl-10 pr-3 py-3 bg-card/70 backdrop-blur-sm border border-border rounded-xl text-text placeholder-lightText focus:ring-2 focus:ring-primary focus:border-primary focus:bg-card transition-all duration-300"
                     placeholder={userType === 'citizen' ? t('enterCitizenIdEmail') : t('enterYourUsername')}
                     required
                   />
@@ -171,11 +171,11 @@ export default function LoginForm({ onLogin }) {
                       id="department"
                       value={department}
                       onChange={(e) => setDepartment(e.target.value)}
-                      className="block w-full pl-10 pr-3 py-3 bg-background/50 backdrop-blur-sm border border-lightText/30 rounded-xl text-text focus:ring-2 focus:ring-primary focus:border-primary focus:bg-background/70 transition-all duration-300 appearance-none"
+                      className="block w-full pl-10 pr-3 py-3 bg-card/70 backdrop-blur-sm border border-border rounded-xl text-text focus:ring-2 focus:ring-primary focus:border-primary focus:bg-card transition-all duration-300 appearance-none"
                       required
                     >
                       {departments.map((dept) => (
-                        <option key={dept.value} value={dept.value} className="bg-gray-800 text-white">
+                        <option key={dept.value} value={dept.value} className="bg-card text-text">
                           {dept.label}
                         </option>
                       ))}
@@ -203,7 +203,7 @@ export default function LoginForm({ onLogin }) {
                     type={showPassword ? 'text' : 'password'}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="block w-full pl-10 pr-12 py-3 bg-background/50 backdrop-blur-sm border border-lightText/30 rounded-xl text-text placeholder-lightText/80 focus:ring-2 focus:ring-primary focus:border-primary focus:bg-background/70 transition-all duration-300"
+                    className="block w-full pl-10 pr-12 py-3 bg-card/70 backdrop-blur-sm border border-border rounded-xl text-text placeholder-lightText focus:ring-2 focus:ring-primary focus:border-primary focus:bg-card transition-all duration-300"
                     placeholder={t('enterYourPassword')}
                     required
                   />
@@ -226,7 +226,7 @@ export default function LoginForm({ onLogin }) {
                 <label className="flex items-center">
                   <input
                     type="checkbox"
-                    className="h-4 w-4 text-primary focus:ring-primary bg-background/50 border-lightText/30 rounded backdrop-blur-sm"
+                    className="h-4 w-4 text-primary focus:ring-primary bg-card/70 border-border rounded backdrop-blur-sm"
                   />
                   <span className="ml-2 text-sm text-lightText">{t('rememberMe')}</span>
                 </label>
@@ -239,7 +239,7 @@ export default function LoginForm({ onLogin }) {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 px-4 rounded-xl font-semibold hover:from-primary/90 hover:to-secondary/90 focus:ring-4 focus:ring-primary/50 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 px-4 rounded-xl font-semibold hover:from-primary/90 hover:to-secondary/90 focus:ring-4 focus:ring-primary/50 transition-all duration-300 transform hover:scale-[1.02] shadow-medium disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isLoading ? (
                   <div className="flex items-center justify-center">

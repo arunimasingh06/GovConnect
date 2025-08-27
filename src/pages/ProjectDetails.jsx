@@ -63,53 +63,53 @@ const ProjectDetails = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {/* Funds Card */}
-          <div className="bg-gray-800 rounded-xl shadow-md border border-gray-700 p-6">
+          <div className="bg-card rounded-xl shadow-light border border-border p-6">
             <div className="flex items-center mb-4">
               <DollarSign className="w-6 h-6 text-primary mr-3" />
               <h2 className="text-xl font-semibold text-text">{t('funds')}</h2>
             </div>
             <p className="text-2xl font-bold text-primary mb-2">₹{project.fundsUsed}M / ₹{project.totalFunds}M</p>
-            <div className="w-full bg-gray-700 rounded-full h-2.5">
+            <div className="w-full bg-background rounded-full h-2.5">
               <div className="bg-primary h-2.5 rounded-full" style={{ width: `${(project.fundsUsed / project.totalFunds) * 100}%` }}></div>
             </div>
             <p className="text-sm text-lightText mt-2">{t('fundsAllocatedInfo')}</p>
           </div>
 
           {/* Supplies Card */}
-          <div className="bg-gray-800 rounded-xl shadow-md border border-gray-700 p-6">
+          <div className="bg-card rounded-xl shadow-light border border-border p-6">
             <div className="flex items-center mb-4">
               <Package className="w-6 h-6 text-secondary mr-3" />
               <h2 className="text-xl font-semibold text-text">{t('supplies')}</h2>
             </div>
             <p className="text-2xl font-bold text-secondary mb-2">{project.suppliesUsed} / {project.suppliesAvailable}</p>
-            <div className="w-full bg-gray-700 rounded-full h-2.5">
+            <div className="w-full bg-background rounded-full h-2.5">
               <div className="bg-secondary h-2.5 rounded-full" style={{ width: `${(project.suppliesUsed / project.suppliesAvailable) * 100}%` }}></div>
             </div>
             <p className="text-sm text-lightText mt-2">{t('suppliesUsedInfo')}</p>
           </div>
 
           {/* Transparency Score Card */}
-          <div className="bg-gray-800 rounded-xl shadow-md border border-gray-700 p-6 flex items-center justify-between">
+          <div className="bg-card rounded-xl shadow-light border border-border p-6 flex items-center justify-between">
             <div>
               <h2 className="text-xl font-semibold text-text mb-2">{t('transparencyIndex')}</h2>
               <p className="text-5xl font-bold text-accent">{project.transparencyScore}%</p>
             </div>
-            <ShieldCheck className="w-12 h-12 text-accent/50" />
+            <ShieldCheck className="w-12 h-12 text-accent/30" />
           </div>
         </div>
 
         {/* Milestones and Documents */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Milestones */}
-          <div className="bg-gray-800 rounded-xl shadow-md border border-gray-700 p-6">
+          <div className="bg-card rounded-xl shadow-light border border-border p-6">
             <div className="flex items-center mb-6">
               <CalendarDays className="w-6 h-6 text-primary mr-3" />
               <h2 className="text-xl font-semibold text-text">{t('milestoneTimeline')}</h2>
             </div>
-            <ol className="relative border-l border-gray-600 ml-4">
+            <ol className="relative border-l border-border ml-4">
               {project.milestones.map((milestone, index) => (
                 <li key={index} className="mb-6 ml-6">
-                  <span className={`absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 ring-8 ring-background ${milestone.completed ? 'bg-primary' : 'bg-gray-600'}`}>
+                  <span className={`absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 ring-8 ring-background ${milestone.completed ? 'bg-primary' : 'bg-lightText'}`}>
                     {milestone.completed ? <CheckCircle className="w-3 h-3 text-white" /> : <Clock className="w-3 h-3 text-white" />}
                   </span>
                   <h3 className="flex items-center mb-1 text-lg font-semibold text-text">{milestone.name}</h3>
@@ -122,7 +122,7 @@ const ProjectDetails = () => {
 
           {/* Department Contact & Official Documents */}
           <div className="space-y-6">
-            <div className="bg-gray-800 rounded-xl shadow-md border border-gray-700 p-6">
+            <div className="bg-card rounded-xl shadow-light border border-border p-6">
               <div className="flex items-center mb-4">
                 <Contact className="w-6 h-6 text-secondary mr-3" />
                 <h2 className="text-xl font-semibold text-text">{t('projectContact')}</h2>
@@ -132,7 +132,7 @@ const ProjectDetails = () => {
               <p className="text-lightText text-sm">{t('phone')}: {project.contactInfo.phone}</p>
             </div>
 
-            <div className="bg-gray-800 rounded-xl shadow-md border border-gray-700 p-6">
+            <div className="bg-card rounded-xl shadow-light border border-border p-6">
               <div className="flex items-center mb-4">
                 <FileText className="w-6 h-6 text-accent mr-3" />
                 <h2 className="text-xl font-semibold text-text">{t('officialDocuments')}</h2>
@@ -140,7 +140,7 @@ const ProjectDetails = () => {
               <ul className="space-y-2">
                 {project.documents.map((doc, index) => (
                   <li key={index}>
-                    <a href={doc.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline flex items-center">
+                    <a href={doc.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 flex items-center">
                       <FileText className="w-4 h-4 mr-2 text-primary" />
                       {doc.name}
                     </a>
@@ -152,7 +152,7 @@ const ProjectDetails = () => {
         </div>
 
         {/* Embedded Map Location */}
-        <div className="bg-gray-800 rounded-xl shadow-md border border-gray-700 p-6 mb-8">
+        <div className="bg-card rounded-xl shadow-light border border-border p-6 mb-8">
           <div className="flex items-center mb-4">
             <MapPin className="w-6 h-6 text-accent mr-3" />
             <h2 className="text-xl font-semibold text-text">{t('projectLocation')}</h2>
@@ -162,7 +162,7 @@ const ProjectDetails = () => {
               center={[project.mapLocation.lat, project.mapLocation.lng]}
               zoom={15}
               style={{ height: '400px', width: '100%' }}
-              className="rounded-lg border border-gray-700"
+              className="rounded-lg border border-border shadow-light"
             >
               <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -170,7 +170,8 @@ const ProjectDetails = () => {
               />
               <Marker position={[project.mapLocation.lat, project.mapLocation.lng]}>
                 <Popup>
-                  {project.name}
+                  <span className="font-semibold text-text">{project.name}</span><br/>
+                  <div className="text-lightText">{project.description}</div>
                 </Popup>
               </Marker>
             </MapContainer>

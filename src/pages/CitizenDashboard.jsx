@@ -58,7 +58,7 @@ const CitizenDashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
             {/* Placeholder for a main content area, e.g., project highlights or map */}
-            <div className="bg-gray-800 rounded-xl shadow-sm border border-gray-700 p-6 h-full flex items-center justify-center">
+            <div className="bg-card rounded-xl shadow-light border border-border p-6 h-full flex items-center justify-center">
               <p className="text-lg font-medium text-lightText">{t('projectHighlightsMap')}</p>
             </div>
           </div>
@@ -68,7 +68,7 @@ const CitizenDashboard = () => {
         </div>
 
         {/* Aadhaar Verification Placeholder */}
-        <div className="bg-gray-800 rounded-xl shadow-md border border-gray-700 p-6 mt-8">
+        <div className="bg-card rounded-xl shadow-medium border border-border p-6 mt-8">
           <div className="flex items-center mb-4">
             <Fingerprint className="w-6 h-6 text-primary mr-3" />
             <h2 className="text-xl font-semibold text-text">{t('aadhaarVerification')}</h2>
@@ -78,14 +78,14 @@ const CitizenDashboard = () => {
             <input
               type="text"
               placeholder={t('enterAadhaarNumber')}
-              className="flex-1 px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-text placeholder-lightText"
+              className="flex-1 px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-card text-text placeholder-lightText shadow-light"
               value={aadhaarNumber}
               onChange={(e) => setAadhaarNumber(e.target.value)}
               aria-label={t('aadhaarNumber')}
             />
             <button
               onClick={() => alert(t('aadhaarVerifyComingSoon'))}
-              className="bg-primary text-white px-6 py-3 rounded-lg shadow-md hover:bg-primary/90 transition duration-300"
+              className="bg-primary text-white px-6 py-3 rounded-lg shadow-medium hover:bg-primary/90 transition duration-300 transform hover:scale-105"
               aria-label={t('verifyAadhaar')}
             >
               {t('verifyAadhaar')}
@@ -94,13 +94,13 @@ const CitizenDashboard = () => {
         </div>
 
         <div className="mt-6 flex justify-center space-x-4">
-          <button className="bg-primary text-white px-6 py-3 rounded-lg shadow-md hover:bg-primary/90 transition duration-300">
+          <button className="bg-primary text-white px-6 py-3 rounded-lg shadow-medium hover:bg-primary/90 transition duration-300 transform hover:scale-105">
             {t('viewProjects')}
           </button>
-          <button className="bg-secondary text-white px-6 py-3 rounded-lg shadow-md hover:bg-secondary/90 transition duration-300">
+          <button className="bg-secondary text-white px-6 py-3 rounded-lg shadow-medium hover:bg-secondary/90 transition duration-300 transform hover:scale-105">
             {t('giveFeedback')}
           </button>
-          <button className="bg-accent text-white px-6 py-3 rounded-lg shadow-md hover:bg-accent/90 transition duration-300">
+          <button className="bg-accent text-white px-6 py-3 rounded-lg shadow-medium hover:bg-accent/90 transition duration-300 transform hover:scale-105">
             {t('voteOnUpcomingProjects')}
           </button>
         </div>

@@ -80,7 +80,7 @@ const ProjectsDirectory = () => {
   });
 
   const ProjectCard = ({ project }) => (
-    <div className="bg-gray-800 rounded-xl shadow-md border border-gray-700 p-6 flex flex-col">
+    <div className="bg-card rounded-xl shadow-light border border-border p-6 flex flex-col">
       <h3 className="text-xl font-semibold text-text mb-2">{project.name}</h3>
       <p className="text-sm text-lightText mb-4">{t('department')}: {t(project.department)}</p>
 
@@ -89,7 +89,7 @@ const ProjectsDirectory = () => {
           <span>{t('progress')}</span>
           <span>{project.progress}%</span>
         </div>
-        <div className="w-full bg-gray-700 rounded-full h-2">
+        <div className="w-full bg-background rounded-full h-2">
           <div
             className="bg-primary h-2 rounded-full"
             style={{ width: `${project.progress}%` }}
@@ -109,7 +109,7 @@ const ProjectsDirectory = () => {
         </span>
       </div>
 
-      <button className="mt-auto bg-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-primary/90 transition duration-300">
+      <button className="mt-auto bg-primary text-white px-4 py-2 rounded-lg shadow-medium hover:bg-primary/90 transition duration-300 transform hover:scale-105">
         {t('viewDetails')}
       </button>
     </div>
@@ -120,13 +120,13 @@ const ProjectsDirectory = () => {
       <main className="container mx-auto p-4">
         <h1 className="text-3xl font-bold text-text mb-6">{t('projectsDirectory')}</h1>
         
-        <div className="bg-gray-800 rounded-xl shadow-sm border border-gray-700 p-6 mb-8">
+        <div className="bg-card rounded-xl shadow-light border border-border p-6 mb-8">
           <div className="relative mb-4">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lightText w-5 h-5" />
             <input
               type="text"
               placeholder={t('searchProjects')}
-              className="w-full pl-10 pr-4 py-2 border border-gray-600 rounded-lg focus:ring-primary focus:border-primary bg-background text-text placeholder-lightText"
+              className="w-full pl-10 pr-4 py-2 border border-border rounded-lg focus:ring-primary focus:border-primary bg-card text-text placeholder-lightText shadow-light"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -140,12 +140,12 @@ const ProjectsDirectory = () => {
               </label>
               <select
                 id="status-filter"
-                className="w-full p-2 border border-gray-600 rounded-lg focus:ring-primary focus:border-primary bg-background text-text"
+                className="w-full p-2 border border-border rounded-lg focus:ring-primary focus:border-primary bg-card text-text shadow-light"
                 value={selectedStatus}
                 onChange={(e) => setSelectedStatus(e.target.value)}
               >
                 {statuses.map((status) => (
-                  <option key={status.value} value={status.value} className="bg-gray-800 text-text">{status.label}</option>
+                  <option key={status.value} value={status.value} className="bg-card text-text">{status.label}</option>
                 ))}
               </select>
             </div>
@@ -156,12 +156,12 @@ const ProjectsDirectory = () => {
               </label>
               <select
                 id="category-filter"
-                className="w-full p-2 border border-gray-600 rounded-lg focus:ring-primary focus:border-primary bg-background text-text"
+                className="w-full p-2 border border-border rounded-lg focus:ring-primary focus:border-primary bg-card text-text shadow-light"
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
               >
                 {categories.map((category) => (
-                  <option key={category.value} value={category.value} className="bg-gray-800 text-text">{category.label}</option>
+                  <option key={category.value} value={category.value} className="bg-card text-text">{category.label}</option>
                 ))}
               </select>
             </div>

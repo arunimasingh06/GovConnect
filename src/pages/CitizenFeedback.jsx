@@ -53,17 +53,17 @@ const CitizenFeedback = () => {
       <main className="container mx-auto p-4">
         <h1 className="text-3xl font-bold text-text mb-6">{t('citizenFeedback')}</h1>
 
-        <div className="bg-gray-800 rounded-xl shadow-md border border-gray-700 p-6 max-w-2xl mx-auto">
+        <div className="bg-card rounded-xl shadow-light border border-border p-6 max-w-2xl mx-auto">
           <form onSubmit={handleSubmitFeedback} className="space-y-6">
             {error && (
-              <div className="bg-red-500/20 border border-red-400/30 text-red-300 px-4 py-3 rounded relative" role="alert">
+              <div className="bg-danger/10 border border-danger/30 text-danger px-4 py-3 rounded relative" role="alert">
                 <strong className="font-bold">{t('error')}!</strong>
                 <span className="block sm:inline"> {error}</span>
               </div>
             )}
 
             {submitSuccess && (
-              <div className="bg-green-500/20 border border-green-400/30 text-green-300 px-4 py-3 rounded relative" role="alert">
+              <div className="bg-success/10 border border-success/30 text-success px-4 py-3 rounded relative" role="alert">
                 <strong className="font-bold">{t('success')}!</strong>
                 <span className="block sm:inline"> {t('feedbackSubmitted')}</span>
               </div>
@@ -76,7 +76,7 @@ const CitizenFeedback = () => {
                 {[1, 2, 3, 4, 5].map((star) => (
                   <Star
                     key={star}
-                    className={`cursor-pointer ${star <= rating ? 'text-accent fill-current' : 'text-gray-600'}`}
+                    className={`cursor-pointer ${star <= rating ? 'text-accent fill-current' : 'text-lightText'}`}
                     size={32}
                     onClick={() => handleStarClick(star)}
                   />
@@ -90,7 +90,7 @@ const CitizenFeedback = () => {
               <textarea
                 id="comment"
                 rows="4"
-                className="w-full p-3 border border-gray-600 rounded-lg focus:ring-primary focus:border-primary bg-background text-text placeholder-lightText"
+                className="w-full p-3 border border-border rounded-lg focus:ring-primary focus:border-primary bg-card text-text placeholder-lightText shadow-light"
                 placeholder={t('shareYourFeedback')}
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
@@ -104,21 +104,21 @@ const CitizenFeedback = () => {
                 <button
                   type="button"
                   onClick={() => setFeedbackType('suggestion')}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${feedbackType === 'suggestion' ? 'bg-primary text-white' : 'bg-gray-700 text-lightText hover:bg-gray-600'}`}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${feedbackType === 'suggestion' ? 'bg-primary text-white shadow-medium' : 'bg-background text-lightText hover:bg-gray-100 shadow-light'}`}
                 >
                   {t('suggestion')}
                 </button>
                 <button
                   type="button"
                   onClick={() => setFeedbackType('complaint')}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${feedbackType === 'complaint' ? 'bg-red-500 text-white' : 'bg-gray-700 text-lightText hover:bg-gray-600'}`}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${feedbackType === 'complaint' ? 'bg-danger text-white shadow-medium' : 'bg-background text-lightText hover:bg-gray-100 shadow-light'}`}
                 >
                   {t('complaint')}
                 </button>
                 <button
                   type="button"
                   onClick={() => setFeedbackType('praise')}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${feedbackType === 'praise' ? 'bg-secondary text-white' : 'bg-gray-700 text-lightText hover:bg-gray-600'}`}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${feedbackType === 'praise' ? 'bg-secondary text-white shadow-medium' : 'bg-background text-lightText hover:bg-gray-100 shadow-light'}`}
                 >
                   {t('praise')}
                 </button>
@@ -129,7 +129,7 @@ const CitizenFeedback = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-primary text-white py-3 px-4 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-primary text-white py-3 px-4 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-medium transform hover:scale-105"
             >
               {isSubmitting ? t('submittingFeedback') : t('submitFeedback')}
             </button>
