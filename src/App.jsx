@@ -19,6 +19,7 @@ import CitizenFeedback from './pages/CitizenFeedback';
 import CitizenPolling from './pages/CitizenPolling';
 import LiveMapView from './pages/LiveMapView';
 import DownloadReports from './pages/DownloadReports';
+import LandingPage from './pages/LandingPage';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -50,8 +51,9 @@ function App() {
     return (
       <Router>
         <Routes>
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
-          <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>
     );
